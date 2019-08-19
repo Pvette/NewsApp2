@@ -19,16 +19,18 @@ import androidx.loader.content.Loader;
 
 import java.util.ArrayList;
 import java.util.List;
+//import androidx.appcompat.app.AppCompatActivity;
+
+//import androidx.annotation.NonNull;
 
 public class MainActivity extends AppCompatActivity
-        implements androidx.loader.app.LoaderManager.LoaderCallbacks<List<Article>> {
+     implements androidx.loader.app.LoaderManager.LoaderCallbacks<List<Article>> {
 
 
         private static final String LOG_TAG = MainActivity.class.getName();
 
         private static final String GUARDIAN_REQUEST_URL =
                 "https://content.guardianapis.com/search?api-key=f9e15623-f7be-471d-ad33-462e228e2cdb";
-
 
 
         private static final int ARTICLE_LOADER_ID = 1;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         articleListView.setEmptyView(mEmptyStateTextView);
 
-        LoaderManager supportLoaderManager = getSupportLoaderManager();
+    //    LoaderManager supportLoaderManager = getSupportLoaderManager();
        // private static final String LOG_TAG = MainActivity.class.getName();
 
 
@@ -77,9 +79,12 @@ public class MainActivity extends AppCompatActivity
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
-            android.app.LoaderManager loaderManager = getLoaderManager();
-            loaderManager.initLoader(ARTICLE_LOADER_ID, null, (android.app.LoaderManager.LoaderCallbacks<Object>) this);
-        }else {
+           LoaderManager loaderManager = getSupportLoaderManager();
+          // LoaderManager supportLoaderManager = getSupportLoaderManager();
+           getSupportLoaderManager().initLoader(ARTICLE_LOADER_ID, null, this);
+         //   loaderManager.initLoader(ARTICLE_LOADER_ID, null, (LoaderManager.LoaderCallbacks<Object>) this);
+        }
+        else {
             View loadingIndicator = findViewById(R.id.loading_indicator);
 
             loadingIndicator.setVisibility(View.GONE);
@@ -102,6 +107,8 @@ public class MainActivity extends AppCompatActivity
 
         return new ArticleLoader(this, uriBuilder.toString());
     }
+
+
 
     @Override
     public void onLoadFinished(@NonNull Loader<List<Article>> loader, List<Article> articles) {
