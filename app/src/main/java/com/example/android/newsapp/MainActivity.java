@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity
         if (networkInfo != null && networkInfo.isConnected()) {
            LoaderManager loaderManager = getSupportLoaderManager();
           // LoaderManager supportLoaderManager = getSupportLoaderManager();
-           getSupportLoaderManager().initLoader(ARTICLE_LOADER_ID, null, this);
+           LoaderManager.getInstance(this).initLoader(ARTICLE_LOADER_ID, null, this);
+         //   getSupportLoaderManager().initLoader(ARTICLE_LOADER_ID, null, this);
          //   loaderManager.initLoader(ARTICLE_LOADER_ID, null, (LoaderManager.LoaderCallbacks<Object>) this);
         }
         else {
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
         uriBuilder.appendQueryParameter("q", "business");
-        uriBuilder.appendQueryParameter("api-key", "test");
+     //   uriBuilder.appendQueryParameter("api-key", "test");
 
         return new ArticleLoader(this, uriBuilder.toString());
     }
