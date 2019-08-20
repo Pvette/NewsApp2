@@ -230,12 +230,12 @@ public final class QueryUtils {
 
 
 
-          JSONArray articleArray = baseJsonResponse.getJSONArray("features");
+          JSONArray resultsArray = baseJsonResponse.getJSONArray("results");
 
 
-            for (int i = 0; i < articleArray.length(); i++) {
+            for (int i = 0; i < resultsArray.length(); i++) {
 
-                JSONObject currentArticle = articleArray.getJSONObject(i);
+                JSONObject currentArticle = resultsArray.getJSONObject(i);
 
                 JSONObject properties = currentArticle.getJSONObject("properties");
 
