@@ -59,7 +59,7 @@ public final class QueryUtils {
 
 
 
-        // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
+        // Extract relevant fields from the JSON response and create a list of {@link Article}s
 
         List<Article> articles = extractFeatureFromJson(jsonResponse);
 
@@ -173,11 +173,8 @@ public final class QueryUtils {
 
 
     /**
-
      * Convert the {@link InputStream} into a String which contains the
-
      * whole JSON response from the server.
-
      */
 
     private static String readFromStream(InputStream inputStream) throws IOException {
@@ -225,34 +222,37 @@ public final class QueryUtils {
             // Create a JSONObject from the JSON response string
 
             JSONObject baseJsonResponse = new JSONObject(articleJSON);
+            JSONObject response = baseJsonResponse.getJSONObject("response");
 
             // Extract the JSONArray associated with the key called "features",
 
             // which represents a list of features (or earthquakes).
 
-            JSONArray articleArray = baseJsonResponse.getJSONArray("features");
+
+
+          JSONArray articleArray = baseJsonResponse.getJSONArray("features");
 
 
             for (int i = 0; i < articleArray.length(); i++) {
 
                 JSONObject currentArticle = articleArray.getJSONObject(i);
 
-
                 JSONObject properties = currentArticle.getJSONObject("properties");
 
-                // Extract the value for the key called "mag"
+                // Extract the value for the key called "section"
 
-                String section = properties.getString("section");
+                String section = properties.getString("sectionName");
 
-                // Extract the value for the key called "place"
+                // Extract the value for the key called "title"
 
-                String title = properties.getString("title");
-
-
-                String url = properties.getString("url");
+                String title = properties.getString("webTitle");
 
 
-                String date = properties.getString("date");
+                String url = properties.getString("webUrl");
+
+
+                String date = properties.getString("webPublicationDate");
+
                 Article article = new Article(section, title, date, url);
 
 
@@ -263,7 +263,7 @@ public final class QueryUtils {
         } catch (JSONException e) {
 
 
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.e("QueryUtils", "Problem parsing the article JSON results", e);
 
         }
 
