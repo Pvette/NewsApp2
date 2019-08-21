@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity
         private static final String LOG_TAG = MainActivity.class.getName();
 
         private static final String GUARDIAN_REQUEST_URL =
-                "https://content.guardianapis.com/search?api-key=f9e15623-f7be-471d-ad33-462e228e2cdb";
-
+                "https://content.guardianapis.com/search";
+            //  "https://content.guardianapis.com/search?api-key=f9e15623-f7be-471d-ad33-462e228e2cdb";
 
         private static final int ARTICLE_LOADER_ID = 1;
 
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
         uriBuilder.appendQueryParameter("q", "business");
-     //   uriBuilder.appendQueryParameter("api-key", "test");
+        uriBuilder.appendQueryParameter("api-key", "test");
 
         return new ArticleLoader(this, uriBuilder.toString());
     }
