@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity
         private static final String LOG_TAG = MainActivity.class.getName();
 
         private static final String GUARDIAN_REQUEST_URL =
-                "https://content.guardianapis.com/search";
-            //  "https://content.guardianapis.com/search?api-key=f9e15623-f7be-471d-ad33-462e228e2cdb";
+
+            "https://content.guardianapis.com/search?q=debate&tag=politics/politics&show-tags=contributor&api-key=test";
 
         private static final int ARTICLE_LOADER_ID = 1;
 
@@ -49,9 +49,7 @@ public class MainActivity extends AppCompatActivity
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         articleListView.setEmptyView(mEmptyStateTextView);
 
-    //    LoaderManager supportLoaderManager = getSupportLoaderManager();
-       // private static final String LOG_TAG = MainActivity.class.getName();
-
+        // Create a new adapter that takes an empty list of articles as input
 
         mAdapter = new ArticleAdapter(this, new  ArrayList<Article>());
         articleListView.setAdapter(mAdapter);
@@ -80,10 +78,9 @@ public class MainActivity extends AppCompatActivity
 
         if (networkInfo != null && networkInfo.isConnected()) {
            LoaderManager loaderManager = getSupportLoaderManager();
-          // LoaderManager supportLoaderManager = getSupportLoaderManager();
+
            LoaderManager.getInstance(this).initLoader(ARTICLE_LOADER_ID, null, this);
-         //   getSupportLoaderManager().initLoader(ARTICLE_LOADER_ID, null, this);
-         //   loaderManager.initLoader(ARTICLE_LOADER_ID, null, (LoaderManager.LoaderCallbacks<Object>) this);
+
         }
         else {
             View loadingIndicator = findViewById(R.id.loading_indicator);
@@ -104,7 +101,7 @@ public class MainActivity extends AppCompatActivity
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
         uriBuilder.appendQueryParameter("q", "business");
-        uriBuilder.appendQueryParameter("api-key", "test");
+
 
         return new ArticleLoader(this, uriBuilder.toString());
     }

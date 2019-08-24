@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="95dp"
     android:background="#FFF7DA">
 
     <TextView
@@ -30,22 +30,33 @@
         android:textSize="12sp"
         tools:text="Entertainment" />
 
-
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:textColor="#4eee94"
-        android:textSize="12sp"
+        android:textSize="9sp"
         tools:text="March 10, 2010" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#4d88d5"
+        android:textSize="10sp"
+        tools:text="Entertainment" />
+
 
     <TextView
         android:id="@+id/url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="5dp"
         android:maxLines="1"
         android:textColor="#3a66a0"
-        android:textSize="4sp"/>
+        android:textSize="6sp"/>
 </LinearLayout>

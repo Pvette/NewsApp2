@@ -5,12 +5,16 @@ public class Article {
     public String mTitle;
     public String mDate;
     public String mUrl;
+    public String mAuthor;
 
-    public Article(String title, String section, String date, String url) {
+
+    public Article(String title, String section, String url, String date, String author) {
         mTitle = title;
         mSection = section;
         mDate = date;
         mUrl = url;
+        mAuthor = author;
+
     }
 
     public String getTitle(){
@@ -27,6 +31,10 @@ public class Article {
     public String getUrl(){
         return mUrl;
     }
+
+    public String getAuthor(){
+        return mAuthor;
+    }
 }
 
 
@@ -34,5 +42,3 @@ public class Article {
 
 
 
-
-//https://github.com/PhilomenaMbura/NewsApp/tree/master/app/src

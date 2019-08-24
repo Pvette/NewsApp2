@@ -11,6 +11,7 @@ public class ArticleLoader extends AsyncTaskLoader<List<Article>> {
 
     private static final String LOG_TAG = ArticleLoader.class.getName();
 
+    /** Query URL */
     private String mUrl;
 
 

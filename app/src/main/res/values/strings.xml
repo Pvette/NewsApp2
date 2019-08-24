@@ -13,18 +13,7 @@
 
     <string name="settings_title">Article Settings</string>
 
-    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
 
-    <string name="settings_order_by_label">Order By</string>
 
-    <string name="settings_order_by_key" translatable="false">order_by</string>
-
-    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_value</string>
-
-    <!-- Label for order-by magnitude option [CHAR LIMIT=20] -->
-
-    <string name="settings_order_by_magnitude_label">Magnitude</string>
-
-    <string name="settings_order_by_value" translatable="false">magnitude</string>
     <string name="no_articles" />
 </resources>

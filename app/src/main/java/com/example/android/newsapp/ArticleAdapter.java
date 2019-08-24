@@ -16,13 +16,6 @@ public class ArticleAdapter extends ArrayAdapter <Article> {
     public ArticleAdapter(Context context, List<Article> articles) {
         super(context, 0, articles);
 
-
-        // private LayoutInflater inflater;
-   //     private List<Article> articles = new ArrayList<Article>();
-//
-
-        //  this.articles = articles;
-        //   inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -47,34 +40,18 @@ public class ArticleAdapter extends ArrayAdapter <Article> {
 
         //get date view
 
-        TextView dateTextView = listItemView.findViewById(R.id.publish_date);
+         TextView dateTextView = listItemView.findViewById(R.id.date);
         dateTextView.setText(currentArticle.getDate());
 
 
         TextView urlTextView = listItemView.findViewById(R.id.url);
         urlTextView.setText(currentArticle.getUrl());
 
+        TextView authorTextView = listItemView.findViewById(R.id.author);
+        authorTextView.setText(currentArticle.getAuthor());
+
         return listItemView;
 
     }
 }
 
- //   @Override
-//     public Object getItem(int position){
- //       return articles.get(position);
-//    }
- //   @Override
-//    public int getCount() {
-//        return articles.size();
-//    }
-//    @Override
-//    public long getItemId(int position) {
- //       return position;
-
- //   }
- //       public void setArticles(List<Article> data) {
- //           boolean b = articles.addAll(data);
- //           notifyDataSetChanged();
-
- //   }
-//}
